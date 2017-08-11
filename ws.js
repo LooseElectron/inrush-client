@@ -14,7 +14,6 @@ $(function() {
         "YHOO": 0
     }
 
-    $('#AAPL span').toggleClass('label-success');
     ws.onopen = function(e) {
       console.log('Connection to server opened');
       ws.send("subscribe AAPL");
@@ -31,10 +30,16 @@ $(function() {
         if(newValue < originalValue) {
             valElem.addClass('label-danger');
             valElem.removeClass('label-success');
-        } else if(newValue > originalValue) {
+        } 
+        else if(newValue > originalValue) {
             valElem.addClass('label-success');
             valElem.removeClass('label-danger');
         }
+        else {
+            valElem.removeClass('label-danger');
+            valElem.removeClass('label-success');
+        }
+         
     }
 
     ws.onmessage = function(e) {
