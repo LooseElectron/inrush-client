@@ -37,7 +37,6 @@ $(document).ready(function() {
      var ws = new WebSocket("ws://10.148.17.107:8080");
 
      ws.onopen = function(e) {
-           console.log('Connection to server opened');
            ws.send("subscribe AAPL");
      }
 
@@ -56,7 +55,6 @@ $(document).ready(function() {
 
           var minprice = myChart.options.scales.yAxes[0].ticks.min;
           var maxprice = myChart.options.scales.yAxes[0].ticks.max;
-          console.log("graph: " + myChart.options.scales.yAxes[0].ticks.min);
           if (askPrice < minprice)
               myChart.options.scales.yAxes[0].ticks.min = askPrice - .05;
           if (bidPrice < minprice)

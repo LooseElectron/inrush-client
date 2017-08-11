@@ -26,7 +26,6 @@ $(function() {
     var changeStockEntry = function(symbol, originalValue, newValue) {
         var valElem = $('#' + symbol + ' span');
         valElem.html(newValue.toFixed(2));
-        console.log (newValue , originalValue, newValue < originalValue)
         if(newValue < originalValue) {
             valElem.addClass('label-danger');
             valElem.removeClass('label-success');
@@ -47,13 +46,6 @@ $(function() {
       var askPrice = stockData.update.ask / 100;
       changeStockEntry(stockData.update.symbol, stocks[stockData.update.symbol], askPrice);
       stocks[stockData.update.symbol] = askPrice;
-
-//      for(var symbol in stockData) {
-//          if(stockData.hasOwnProperty(symbol)) {
-//              changeStockEntry(symbol, stockData[symbol], stocks[symbol]);
-//              stocks[symbol] = stockData[symbol];
-//          }
-//      }
     }
     ws.onclose = function(e) {
       console.log("Connection closed");
@@ -62,7 +54,6 @@ $(function() {
               stocks[symbol] = 0;
           }
       }
-
     }
 
     function disconnect() {

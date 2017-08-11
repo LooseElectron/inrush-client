@@ -36,7 +36,6 @@ randomStockUpdater();
 
 wss.on('connection', function(ws) {
     var client_uuid = uuid.v4();
-    console.log('client [%s] connected', client_uuid);
 
     var clientStockUpdater;
     var sendStockUpdates = function(ws) {

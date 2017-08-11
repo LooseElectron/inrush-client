@@ -18,7 +18,6 @@ $(document).ready(function () {
     $( "#rest" ).click(function() {
         var symbol = $( "#symbolInput" ).val();
             $.get("http://10.148.17.158:8080/api/securityinfo?symbol=" + symbol + "&field=" + field_id, function( data ) {
-                console.log( data );
 
                 $("#data").html( data[field_id][0] );
           });
