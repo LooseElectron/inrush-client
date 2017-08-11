@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="node_modules/chart.js/dist/Chart.min.js"></script>
 
 <style type="text/css">
 html, body {
@@ -58,11 +59,11 @@ html, body {
 
           </div>
     </div>
-    <div class="vertical-center">
+    <div class="vertical-center" id="rest">
         <div class="container">
             <h1>RESTful Access</h1>
             <input type="text" name="symbol" id="symbolInput" />
-            <button type="button" id="rest">REST</button>
+            <button type="button">REST</button>
             <p id='data'></p>
             <br/>
             <div class='inline' id='field'>
@@ -70,6 +71,12 @@ html, body {
             </div>
         </div>
     </div>
+    <div class="vertical-center">
+        <div class="container">
+            <canvas id="myChart" width="50px" height="50px"></canvas>
+        </div>
+    </div>
 
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="graph.js"></script>
 </body></html>

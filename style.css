@@ -24,3 +24,8 @@ td {
     display: inline-block;
     overflow: auto;
 }
+
+#rest {
+     height: 400px;
+}
+
