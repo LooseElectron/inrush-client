@@ -44,7 +44,7 @@ $(function() {
 
     ws.onmessage = function(e) {
       var stockData = JSON.parse(e.data);
-      var askPrice = stockData.update.ask / 100
+      var askPrice = stockData.update.ask / 100;
       changeStockEntry(stockData.update.symbol, stocks[stockData.update.symbol], askPrice);
       stocks[stockData.update.symbol] = askPrice;
 
