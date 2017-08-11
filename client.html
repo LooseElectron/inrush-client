@@ -16,12 +16,12 @@ html, body {
 </style>
 
 <script src="ws.js" ></script>
+<script src="rest.js" ></script>
 
 </head>
 <body lang="en">
     <div class="vertical-center">
         <div class="container">
-
             <h1>Stock Chart over WebSocket</h1>
             <table class="table" id="stockTable">
               <thead>
@@ -56,5 +56,14 @@ html, body {
 
           </div>
     </div>
+    <div class="vertical-center">
+        <div class="container">
+            <h1>RESTful Access</h1>
+            <input type="text" name="symbol" id="symbolInput" />
+            <button type="button" id="rest">REST</button>
+            <table id="data"></table>
+        </div
+    </div>
+
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body></html>
