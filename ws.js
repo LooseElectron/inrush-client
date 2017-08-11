@@ -1,6 +1,6 @@
 $(function() {
 
-    var ws = new WebSocket("ws://localhost:8181");
+    var ws = new WebSocket("ws://10.148.17.107:8080");
 
     var stock_request = {
         "stocks": ["AAPL", "MSFT", "AMZN", "GOOG", "YHOO"]
@@ -17,12 +17,17 @@ $(function() {
     $('#AAPL span').toggleClass('label-success');
     ws.onopen = function(e) {
       console.log('Connection to server opened');
-      ws.send(JSON.stringify(stock_request));
+      ws.send("subscribe AAPL");
+      ws.send("subscribe MSFT");
+      ws.send("subscribe AMZN");
+      ws.send("subscribe GOOG");
+      ws.send("subscribe YHOO");
     }
 
     var changeStockEntry = function(symbol, originalValue, newValue) {
         var valElem = $('#' + symbol + ' span');
         valElem.html(newValue.toFixed(2));
+        console.log (newValue , originalValue, newValue < originalValue)
         if(newValue < originalValue) {
             valElem.addClass('label-danger');
             valElem.removeClass('label-success');
@@ -33,13 +38,17 @@ $(function() {
     }
 
     ws.onmessage = function(e) {
-      var stocksData = JSON.parse(e.data);
-      for(var symbol in stocksData) {
-          if(stocksData.hasOwnProperty(symbol)) {
-              changeStockEntry(symbol, stocksData[symbol], stocks[symbol]);
-              stocks[symbol] = stocksData[symbol];
-          }
-      }
+      var stockData = JSON.parse(e.data);
+      var askPrice = stockData.update.ask / 100
+      changeStockEntry(stockData.update.symbol, stocks[stockData.update.symbol], askPrice);
+      stocks[stockData.update.symbol] = askPrice;
+
+//      for(var symbol in stockData) {
+//          if(stockData.hasOwnProperty(symbol)) {
+//              changeStockEntry(symbol, stockData[symbol], stocks[symbol]);
+//              stocks[symbol] = stockData[symbol];
+//          }
+//      }
     }
     ws.onclose = function(e) {
       console.log("Connection closed");
