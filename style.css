@@ -1,0 +1,14 @@
+table {
+     width: 40%;
+}
+
+tr {
+     height: 16px;
+     vertical-align: middle;
+}
+
+#data {
+    height: 256px;
+    width: 50%;
+    overflow: auto;
+}
