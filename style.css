@@ -1,5 +1,4 @@
 table {
-     width: 40%;
 }
 
 tr {
@@ -7,8 +6,21 @@ tr {
      vertical-align: middle;
 }
 
-#data {
-    height: 256px;
+td {
+    padding: 5px;
+}
+
+#field {
+    position: absolute;
     width: 50%;
+}
+
+#data {
+    margin-left: 50%
+}
+
+.inline {
+    height: 256px;
+    display: inline-block;
     overflow: auto;
 }
