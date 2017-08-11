@@ -5,7 +5,7 @@ $(document).ready(function() {
      var myChart = new Chart(ctx, {
          type: 'line',
          data: {
-             labels: ["one", "two", "three", "four", "five"],
+             labels: ["", "", "", "", ""],
              datasets: [{
                  label: 'Ask',
                  data: [0, 0, 0, 0, 0],
